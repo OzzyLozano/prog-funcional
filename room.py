@@ -1,29 +1,26 @@
-# input: { largo, ancho, espesor del piso }, volumen concreto requerido para el piso
-# 1m^3 de concreto requiere: { 350kg cemento, 0.56m^3 arena, 0.56m^3 grava, 180l agua }
-# la cantidad de concreto requerido para el piso requieren: { ?? }
-FLOOR_THICKNESS = 0.15
+# cuarto, valores fijos:
+DOOR_LENGTH = 1
+DOOR_HEIGHT = 1.9
+DOOR_AREA = DOOR_LENGTH * DOOR_HEIGHT
+WINDOW_WIDTH = 1.2
+WINDOW_HEIGHT = 1.5
+WINDOW_AREA = WINDOW_WIDTH * WINDOW_HEIGHT
 
-class ConcreteRequirements:
-  def __init__(self):
-    self.cement_bag = {'amount': 7, 'unit': 'sacos'}
-    self.sand = {'amount': 0.56, 'unit': 'm^3'}
-    self.gravel = {'amount': 0.84, 'unit': 'm^3'}
-    self.water = {'amount': 180, 'unit': 'l'}
-  
-  def get_requirements(self, concrete_amount):
-    return [
-      f'cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement_bag['amount']) } { self.cement_bag['unit'] }\n'
-      f'arena requerida: { '{:.2f}'.format(concrete_amount * self.sand['amount']) } { self.sand['unit'] }\n'
-      f'grava requerida: { '{:.2f}'.format(concrete_amount * self.gravel['amount']) } { self.gravel['unit'] }\n'
-      f'agua requerida: { '{:.2f}'.format(concrete_amount * self.water['amount']) } { self.water['unit'] }\n'
-    ]
+# bricks stuff
+BRICK_WIDTH = 0.23
+BRICK_HEIGHT = 0.05
+VERTICAL_JOINT_THICKNESS = 0.01
+HORIZONTAL_JOINT_THICKNESS = 0.015
 
-room_length = float(input('ingrese el largo (m): '))
-room_width = float(input('ingrese el ancho (m): '))
+# inputs
+front_wall_length = float(input('largo de la pared frontal: '))
+lateral_wall_length = float(input('largo de la pared lateral: '))
+wall_height = float(input('altura de la pared: '))
 
-concrete_volume = room_length * room_width * FLOOR_THICKNESS
+front_wall_area = (front_wall_length * wall_height) - DOOR_AREA
+lateral_wall_area = (lateral_wall_length * wall_height) - WINDOW_AREA
+back_wall_area = (front_wall_length * wall_height)
 
-requirements = ConcreteRequirements().get_requirements(concrete_volume)
+bricks = ((front_wall_area + (lateral_wall_area * 2) + back_wall_area) / ((BRICK_WIDTH + VERTICAL_JOINT_THICKNESS) * (BRICK_HEIGHT + HORIZONTAL_JOINT_THICKNESS)))
 
-for requirement in requirements:
-  print(requirement)
+print(f'ladrillos: {"{:.2f}".format(bricks)}')
