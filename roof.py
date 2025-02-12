@@ -1,7 +1,7 @@
 # input: { largo, ancho, espesor del piso }, volumen concreto requerido para el piso
 # 1m^3 de concreto requiere: { 350kg cemento, 0.56m^3 arena, 0.56m^3 grava, 180l agua }
 # la cantidad de concreto requerido para el piso requieren: { ?? }
-FLOOR_THICKNESS = 0.1
+ROOF_THICKNESS = 0.1
 
 class ConcreteRequirements:
   def __init__(self):
@@ -21,7 +21,7 @@ class ConcreteRequirements:
 room_length = float(input('longitud frontal (m): '))
 room_width = float(input('longitud lateral (m): '))
 
-concrete_volume = room_length * room_width * FLOOR_THICKNESS
+concrete_volume = room_length * room_width * ROOF_THICKNESS
 
 requirements = ConcreteRequirements().get_requirements(concrete_volume)
 
