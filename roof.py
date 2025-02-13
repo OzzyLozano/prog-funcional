@@ -5,6 +5,7 @@ ROOF_THICKNESS = 0.1
 
 class ConcreteRequirements:
   def __init__(self):
+    self.cement = {'amount': 350, 'unit': 'kg'}
     self.cement_bag = {'amount': 7, 'unit': 'sacos'}
     self.sand = {'amount': 0.56, 'unit': 'm^3'}
     self.gravel = {'amount': 0.84, 'unit': 'm^3'}
@@ -12,7 +13,8 @@ class ConcreteRequirements:
   
   def get_requirements(self, concrete_amount):
     return [
-      f'cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement_bag['amount']) } { self.cement_bag['unit'] }\n'
+      f'cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement['amount']) } { self.cement['unit'] }\n'
+      f'bolsas de cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement_bag['amount']) } { self.cement_bag['unit'] }\n'
       f'arena requerida: { '{:.2f}'.format(concrete_amount * self.sand['amount']) } { self.sand['unit'] }\n'
       f'grava requerida: { '{:.2f}'.format(concrete_amount * self.gravel['amount']) } { self.gravel['unit'] }\n'
       f'agua requerida: { '{:.2f}'.format(concrete_amount * self.water['amount']) } { self.water['unit'] }\n'

@@ -12,5 +12,5 @@ column_height = float(input('ingrese la altura de los castillos: '))
 required_rod = column_count * column_height * RODS_PER_COLUMN
 required_rings = column_count * column_height / RING_DISTANCE
 
-print(f'metros de varilla: { required_rod }')
-print(f'anillos requeridos: { required_rings }')
+print(f'metros de varilla: { required_rod:.2f }')
+print(f'anillos requeridos: { required_rings:.2f }')

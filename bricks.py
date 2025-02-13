@@ -11,7 +11,7 @@ altura_pared = float(input('ingrese la altura de la pared: '))
 area_pared = altura_pared * longitud_pared
 
 cantidad_ladrillo = (area_pared / ((longitud_ladrillo + espesor_junta_horizontal) * (altura_ladrillo + espesor_junta_vertical)))
-print(f'vas a requerir {'{:.2f}'.format(cantidad_ladrillo)} ladrillos')
+print(f'vas a requerir {cantidad_ladrillo:.2f} ladrillos')
 
 # longitud_block = 0.39
 # altura_block = 0.20

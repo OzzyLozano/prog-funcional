@@ -12,7 +12,7 @@ class ConcreteRequirements:
   
   def get_requirements(self, concrete_amount):
     return [
-      f'cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement_bag['amount']) } { self.cement_bag['unit'] }\n'
+      f'bolsas de cemento requerido: { '{:.2f}'.format(concrete_amount * self.cement_bag['amount']) } { self.cement_bag['unit'] }\n'
       f'arena requerida: { '{:.2f}'.format(concrete_amount * self.sand['amount']) } { self.sand['unit'] }\n'
       f'grava requerida: { '{:.2f}'.format(concrete_amount * self.gravel['amount']) } { self.gravel['unit'] }\n'
       f'agua requerida: { '{:.2f}'.format(concrete_amount * self.water['amount']) } { self.water['unit'] }\n'

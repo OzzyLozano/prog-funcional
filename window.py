@@ -15,4 +15,4 @@ BRICK_HEIGHT = 0.05
 espesor_punta_horizontal = 0.01
 espesor_punta_vertical = 0.015
 bricks = ((wall_area - window_1 - window_2) / ((BRICK_WIDTH + espesor_punta_horizontal) * (BRICK_HEIGHT + espesor_punta_vertical)))
-print(f'cantidad de ladrillos requeridos: { bricks }')
+print(f'cantidad de ladrillos requeridos: { bricks:.2f }')

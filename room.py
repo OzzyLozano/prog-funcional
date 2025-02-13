@@ -21,6 +21,8 @@ front_wall_area = (front_wall_length * wall_height) - DOOR_AREA
 lateral_wall_area = (lateral_wall_length * wall_height) - WINDOW_AREA
 back_wall_area = (front_wall_length * wall_height)
 
-bricks = ((front_wall_area + (lateral_wall_area * 2) + back_wall_area) / ((BRICK_WIDTH + VERTICAL_JOINT_THICKNESS) * (BRICK_HEIGHT + HORIZONTAL_JOINT_THICKNESS)))
+total_area = front_wall_area + (lateral_wall_area * 2) + back_wall_area
+
+bricks = ((total_area) / ((BRICK_WIDTH + VERTICAL_JOINT_THICKNESS) * (BRICK_HEIGHT + HORIZONTAL_JOINT_THICKNESS)))
 
 print(f'ladrillos: {"{:.2f}".format(bricks)}')
