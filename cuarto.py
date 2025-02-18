@@ -25,4 +25,5 @@ total_area = front_wall_area + (lateral_wall_area * 2) + back_wall_area
 
 bricks = ((total_area) / ((BRICK_WIDTH + VERTICAL_JOINT_THICKNESS) * (BRICK_HEIGHT + HORIZONTAL_JOINT_THICKNESS)))
 
-print(f'ladrillos: {"{:.2f}".format(bricks)}')
+print(f'area total: {total_area:.2f}')
+print(f'ladrillos: {bricks:.2f}')

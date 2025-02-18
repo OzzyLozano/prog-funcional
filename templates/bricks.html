@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+
+{% block title %}bricks{% endblock %}
+
+{% block form_title %}Calcular ladrillos{% endblock %}
+
+{% block url %}action="{{ url_for('calc_bricks') }}"{% endblock %}
+
+{% block content %}
+  <input name="longitud" type="number" class="form-control mb-2" placeholder="longitud pared" step="any">
+  <input name="altura" type="number" class="form-control mb-2" placeholder="altura pared" step="any">
+  {% if bricks is not none %}
+  <h4>ladrillos: {{ bricks }}</h4>
+  {% endif %}
+{% endblock %}
