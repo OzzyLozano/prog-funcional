@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Prog. Log. Func.</title>
+</head>
+<body>
+  <nav></nav>
+  <main class="d-flex justify-content-center align-items-center flex-column gap-4">
+    <h2>Mapa México</h2>
+    <section class="d-flex justify-content-center align-items-center">
+      <img src="{{ url_for('static', filename='img/map.png') }}" alt="mapita" width="40%">
+      <div>
+        <h3>Origen: San Luis Potosí.</h3>
+        <form action="{{ url_for('mapa2') }}" method="post">
+          <div class="mb-2">
+            <label for="tijuana">Tijuana:</label>
+            <input name="tijuana" type="text" class="form-control" placeholder="Cantidad de viajes" oninput="this.value = this.value.replace(/[^-?\d]/g, '')">
+          </div>
+          <div class="mb-2">
+            <label for="juarez">Juárez:</label>
+            <input name="juarez" type="text" class="form-control" placeholder="Cantidad de viajes" oninput="this.value = this.value.replace(/[^-?\d]/g, '')">
+          </div>
+          <div class="mb-2">
+            <label for="laredo">Nuevo Laredo:</label>
+            <input name="laredo" type="text" class="form-control" placeholder="Cantidad de viajes" oninput="this.value = this.value.replace(/[^-?\d]/g, '')">
+          </div>
+          <div class="mb-2">
+            <label for="vallarta">Puerto Vallarta:</label>
+            <input name="vallarta" type="text" class="form-control" placeholder="Cantidad de viajes" oninput="this.value = this.value.replace(/[^-?\d]/g, '')">
+          </div>
+          <div class="mb-2">
+            <label for="merida">Mérida:</label>
+            <input name="merida" type="text" class="form-control" placeholder="Cantidad de viajes" oninput="this.value = this.value.replace(/[^-?\d]/g, '')">
+          </div>
+          <button type="submit" class="btn bg-primary">Calcular</button>
+        </form>
+      </div>
+    </section>
+    {% if info %}
+      <section class="d-flex justify-content-around gap-4">
+        {% if info["tijuana"]["trips"] %}
+          <div class="d-flex flex-column shadow rounded p-3 gap-2">
+            <h3>Tijuana</h3>
+            <p>Cantidad de viajes: {{ info["tijuana"]["trips"] }}</p>
+            <p>Distancia total: {{ info["tijuana"]["distance"] }}</p>
+            <p>Cantidad de combustible: {{ info["tijuana"]["fuel"] }}</p>
+            <p>Cantidad de tanques: {{ info["tijuana"]["total_tanks"] }}</p>
+            <p>Coste de combustible: {{ info["tijuana"]["fuel_cost"] }}</p>
+          </div>
+        {% endif %}
+        {% if info["juarez"]["trips"] %}
+          <div class="d-flex flex-column shadow rounded p-3 gap-2">
+            <h3>Juárez</h3>
+            <p>Cantidad de viajes: {{ info["juarez"]["trips"] }}</p>
+            <p>Distancia total: {{ info["juarez"]["distance"] }}</p>
+            <p>Cantidad de combustible: {{ info["juarez"]["fuel"] }}</p>
+            <p>Cantidad de tanques: {{ info["juarez"]["total_tanks"] }}</p>
+            <p>Coste de combustible: {{ info["juarez"]["fuel_cost"] }}</p>
+          </div>
+        {% endif %}
+        {% if info["laredo"]["trips"] %}
+          <div class="d-flex flex-column shadow rounded p-3 gap-2">
+            <h3>Nuevo Laredo</h3>
+            <p>Cantidad de viajes: {{ info["laredo"]["trips"] }}</p>
+            <p>Distancia total: {{ info["laredo"]["distance"] }}</p>
+            <p>Cantidad de combustible: {{ info["laredo"]["fuel"] }}</p>
+            <p>Cantidad de tanques: {{ info["laredo"]["total_tanks"] }}</p>
+            <p>Coste de combustible: {{ info["laredo"]["fuel_cost"] }}</p>
+          </div>
+        {% endif %}
+        {% if info["vallarta"]["trips"] %}
+          <div class="d-flex flex-column shadow rounded p-3 gap-2">
+            <h3>Puerto Vallarta</h3>
+            <p>Cantidad de viajes: {{ info["vallarta"]["trips"] }}</p>
+            <p>Distancia total: {{ info["vallarta"]["distance"] }}</p>
+            <p>Cantidad de combustible: {{ info["vallarta"]["fuel"] }}</p>
+            <p>Cantidad de tanques: {{ info["vallarta"]["total_tanks"] }}</p>
+            <p>Coste de combustible: {{ info["vallarta"]["fuel_cost"] }}</p>
+          </div>
+        {% endif %}
+        {% if info["merida"]["trips"] %}
+          <div class="d-flex flex-column shadow rounded p-3 gap-2">
+            <h3>Mérida</h3>
+            <p>Cantidad de viajes: {{ info["merida"]["trips"] }}</p>
+            <p>Distancia total: {{ info["merida"]["distance"] }}</p>
+            <p>Cantidad de combustible: {{ info["merida"]["fuel"] }}</p>
+            <p>Cantidad de tanques: {{ info["merida"]["total_tanks"] }}</p>
+            <p>Coste de combustible: {{ info["merida"]["fuel_cost"] }}</p>
+          </div>
+        {% endif %}
+      </section>
+    {% endif %}
+  </main>
+  <footer></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
